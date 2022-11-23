@@ -14,27 +14,34 @@
     width: 10px;
     height:10px;
     transition: all 0.3s  linear;
+  
   }
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #d3d2d2;
     border-radius:15px;
+
   }
   ::-webkit-scrollbar :hover{
     transition: all 0.3s  linear;
     height:15px;
+
   }
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: rgb(156, 155, 155);
+    background: rgb(184, 66, 66);
     border-radius:15px;
+    transition: all 0.3s  linear;
+    cursor: pointer;
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: rgb(149, 148, 148);
+    background: rgb(161, 16, 16);
+    cursor:pointer;
+    transition: all 0.3s  linear;
   }
 
 body{
@@ -51,42 +58,82 @@ body{
     background-color: rgba(255, 255, 255, 0.133);
 }
 
-.nav{
+header{
     background-color: rgba(255,255,255,0.8) !important;
     position: absolute;
     top: 0;
     width: 100%;
     z-index: 1;
+    color: rgb(161, 16, 16) !important;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 3;
 
 }
+header nav{
+  width:70%;
+}
 
+.icon-log-header{
+  width:4rem;
+}
+
+.nav-link.active{
+  border-bottom: 3px solid rgb(161, 16, 16) !important;
+  color:rgb(161, 16, 16) !important;
+  transition: all 0.3s  linear;
+}
+
+.nav-link:hover{
+  color:rgb(161, 16, 16) !important;
+  transition: all 0.3s  linear;
+}
 .hero-container{
     height: 80vh !important;
     overflow: hidden !important;
+    position: relative;
 }
 .slide-hero-content{
     width: 100%;
     height:100% !important;
     overflow: hidden !important;
 }
+.hero-container::before{
+  position: absolute;
+content:'';
+width: 100%;
+height:100%;
+left:0;
+top:0;
+background-color:rgba(0, 0, 0, 0.247);
+z-index: 1;
+
+}
 .carousel-item{
     width: 100% !important;
-    height: 100% !important;
+
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .container-footer-section-hero{
     bottom: 0;
+    z-index: 1;
 
 }
 .content-footer-section-hero{
-background-color:rgba(255,255,255,0.6)
+background-color:rgba(255, 255, 255, 0.699)
+}
+.content-footer-section-hero small{
+color:rgb(161, 16, 16) !important;
+font-weight: 600;
 }
 
 /*About */
 .about-container{
-    height: 80vh;
+    min-height: 80vh;
  z-index: 1;
 }
 .about-content-left{
@@ -132,6 +179,9 @@ background-color:rgba(255,255,255,0.6)
 /*slider*/
 
 
+.content-section h2{
+color:rgb(161, 16, 16);
+}
 .slider-section-se-container{
     height:80vh;
     padding-top:30px;
@@ -145,26 +195,44 @@ background-color:rgba(255,255,255,0.6)
     margin: auto;
     overflow-x: scroll;
     overflow-y: hidden;
-    padding:10px
+    padding:10px;
+    padding-bottom:50px
   }
   
   .slider-item{
-    width:calc((100%/5)-20px);
+    width:calc((100%/3)-10px);
     margin-left: 10px;
     scale: 1;
     transition: all 0.3s  linear;
+    position: relative;
   }
   .slider-container img {
-    width: 15rem;
+    width: 20rem;
     height:100%;
     object-fit: cover;
   }  
+
+  .slider-item::after{
+    content:" ";
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    left:0;
+    top:0;
+    background-color:rgba(161, 16, 16, 0.308);
+    z-index: 1;
+    transition: all 0.3s  linear;
+  }
    
   .slider-item:hover{
-    scale: 1.07;
+    scale: 1.09;
     transition: all 0.3s  linear;
     z-index: 1;
     box-shadow: 0px 0px 10px 5px rgba(255,255,255,0.5);
+  }
+  .slider-item:hover::after{
+    width: 100%;
+    transition: all 0.3s  linear;
   }
 
 /*contact*/
@@ -172,7 +240,7 @@ background-color:rgba(255,255,255,0.6)
 .container-contact{
     width: 100%;
     padding: 10px;
-    height: 80vh;
+    min-height: 80vh;
     background-color:#f8f8f8;
 }
 
@@ -191,6 +259,7 @@ background-color:rgba(255,255,255,0.6)
     display: flex;
     gap: 3rem;
     align-items: center;
+    padding: 10px 20px; 
 }
 
 .card-contact .icon-contact{
@@ -202,14 +271,18 @@ background-color:rgba(255,255,255,0.6)
     display: flex;
     align-items: center;
     justify-content: center;
+  
 }
 
+.card-contact .icon-contact-text h5{
+  font-size:16px
+}
 
   /*map*/
 
   .container-map{
     width: 100%;
-    height: 70vh;
+    height: 90vh;
     background-color:#ffffff;
     padding:20px;
   }
@@ -217,7 +290,7 @@ background-color:rgba(255,255,255,0.6)
   .content-map{
     width: 70%;
     margin: auto;
-    height: 100%;
+    height: 60%;
     border-radius: 10px;
     overflow: hidden;
 
